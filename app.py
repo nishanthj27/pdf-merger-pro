@@ -146,7 +146,7 @@ def upload_preview():
             # Get PDF info
             try:
                 with open(file_path, 'rb') as pdf_file:
-                    pdf_reader = PyPDF2.PdfReader(pdf_file)
+                    pdf_reader = pypdf.PdfReader(pdf_file)
                     page_count = len(pdf_reader.pages)
             except Exception as e:
                 logger.error(f"Error reading PDF {file.filename}: {str(e)}")
@@ -218,7 +218,7 @@ def merge_ordered_pdfs():
         logger.info(f"Session has {len(session_file_list)} files available")
         
         # Create merger object
-        merger = PyPDF2.PdfWriter()
+        merger = pypdf.PdfWriter()
         processed_files = []
         
         # Process files in the specified order
@@ -251,7 +251,7 @@ def merge_ordered_pdfs():
             # Read and add each page from the current PDF
             try:
                 with open(file_path, 'rb') as pdf_file:
-                    pdf_reader = PyPDF2.PdfReader(pdf_file)
+                    pdf_reader = pypdf.PdfReader(pdf_file)
                     page_count = len(pdf_reader.pages)
                     
                     logger.info(f"Adding {page_count} pages from {original_filename}")
