@@ -74,6 +74,19 @@ def generate_pdf_thumbnail(pdf_path):
 session_files = {}
 merged_pdfs = {}  # Store merged PDF info for download
 
+# Add this route to your existing app.py
+@app.route('/ads.txt')
+def ads_txt():
+    """Serve ads.txt file for AdSense compliance"""
+    ads_txt_content = "google.com, pub-7913911366300551, DIRECT, f08c47fec0942fa0"
+    
+    response = app.response_class(
+        response=ads_txt_content,
+        status=200,
+        mimetype='text/plain'
+    )
+    return response
+
 # Security headers for production
 @app.after_request
 def set_security_headers(response):
