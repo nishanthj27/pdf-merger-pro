@@ -1,5 +1,5 @@
 # app.py - Production-ready version for deployment
-from flask import Flask, request, render_template, send_file, jsonify
+from flask import Flask, request, render_template, send_file, jsonify, redirect
 from werkzeug.utils import secure_filename
 import pypdf
 import os
