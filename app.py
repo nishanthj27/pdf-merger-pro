@@ -1,7 +1,7 @@
 # app.py - Production-ready version for deployment
 from flask import Flask, request, render_template, send_file, jsonify
 from werkzeug.utils import secure_filename
-import PyPDF2
+import pypdf
 import os
 import uuid
 from datetime import datetime
